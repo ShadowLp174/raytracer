@@ -29,6 +29,7 @@ public class Triangle {
   }
 
   public boolean isPointInside(Point p) { // following https://blog.scottlogic.com/2020/03/10/raytracer-how-to.html
+    // TODO: improve algorithm
     double[] mins = {
         Arrays.stream(this.points).map((point) -> point.x).min(Double::compareTo).get(),
         Arrays.stream(this.points).map((point) -> point.y).min(Double::compareTo).get(),

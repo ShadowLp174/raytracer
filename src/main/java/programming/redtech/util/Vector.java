@@ -35,6 +35,9 @@ public class Vector {
     v = v.revert();
     return this.add(v);
   }
+  public double magnitude() {
+    return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
+  }
 
   public Point toPoint() {
     return new Point(this.x, this.y, this.z);

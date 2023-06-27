@@ -22,6 +22,9 @@ public class Canvas extends JPanel {
     if (image == null) image = new BufferedImage(this.getWidth(), this.getHeight(), BufferedImage.TYPE_INT_ARGB);
     image.setRGB(x, y, color.getRGB());
   }
+  public void replaceImage(BufferedImage i) {
+    this.image = i;
+  }
   public void draw() {
     this.repaint();
   }

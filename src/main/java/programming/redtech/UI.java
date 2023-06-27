@@ -25,39 +25,14 @@ public class UI {
     f.setVisible(true);
 
     final Triangle t = new Triangle(new Point[] {
-      new Point(-1, 2, 0.5),
-      new Point(1, 2, 0.5),
-      new Point(0, 2, -0.5)
+      new Point(-1, 4, 0.5),
+      new Point(1, 6, 0.5),
+      new Point(0, 4, -0.5)
     });
-    final Point camP = new Point(0, 0, 0);
 
-    final int columns = 11; // temporary test view plane
-    final int rows = 11;
-    final double viewPlaneWidth = 0.5;
-    final double cmax = viewPlaneWidth / columns * ((columns - 1) / 2);
-    final double rmax = viewPlaneWidth / columns * ((rows - 1) / 2);
-    final Point vp = new Point(camP.x, camP.y + 1, camP.z); // vp == view plane center
-
-    final Triangle.Plane p = t.getPlane();
-
-    for (double c = -cmax; c <= cmax; c += viewPlaneWidth / columns) {
-      for (double r = -rmax; r <= rmax; r += viewPlaneWidth / rows) {
-        final Vector rayAngle = new Vector(vp.x + c, 1, vp.z + r); // the view plane is 1 unit away from the camera; in this case, the ray is cast 0.1 units to the right
-        // distance to the intersection with the plane
-        // abort if distance is negative (because it is behind the camera)
-        final double distance = -((p.a * camP.x) + (p.b * camP.y) + (p.c * camP.z) + p.k) / (p.a * rayAngle.x + p.b * rayAngle.y + p.c * rayAngle.z);
-        // s is the origin of the ray (camera)
-        // i == intersection
-        final Vector i = rayAngle.scale(distance).add(camP.toVector());
-        System.out.println("Intersection point: " + i.x + ", " + i.y + ", " + i.z + "; column: " + (int) c + "; row: " + (int) r);
-        if (t.isPointInside(i.toPoint())) {
-          System.out.println("inside");
-          this.canvas.setPixel(10 + (int) (10 * c + vp.x), 10 + (int) (10 * r + vp.z), new Color(255, 0, 0, (int) (200 * 1/distance)));
-        } else {
-          System.out.println("outside");
-        }
-      }
-    }
+    final Camera c = new Camera();
+    c.addTriangle(t);
+    this.canvas.replaceImage(c.render(this.canvas.image, new Color(255, 255, 255, 0)));
     this.canvas.draw();
   }
 }
