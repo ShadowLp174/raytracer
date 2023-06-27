@@ -1,6 +1,7 @@
 package programming.redtech;
 
 import programming.redtech.util.Point;
+import programming.redtech.util.Square;
 import programming.redtech.util.Triangle;
 import programming.redtech.util.Vector;
 
@@ -29,9 +30,12 @@ public class UI {
       new Point(1, 6, 0.5),
       new Point(0, 4, -0.5)
     });
+    final Square s = new Square(new Point(0.2, 2.5, 0.55), 0.2);
 
     final Camera c = new Camera();
     c.addTriangle(t);
+    c.addShape(s);
+
     this.canvas.replaceImage(c.render(this.canvas.image, new Color(255, 255, 255, 0)));
     this.canvas.draw();
   }

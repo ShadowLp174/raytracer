@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7414ff11-4be9-438d-9c87-03364d3676b9" name="Changes" comment="init, basic triangle test working">
-      <change afterPath="$PROJECT_DIR$/src/main/java/programming/redtech/Camera.java" afterDir="false" />
+    <list default="true" id="7414ff11-4be9-438d-9c87-03364d3676b9" name="Changes" comment="added squares, fixed bug with the rasterization">
+      <change afterPath="$PROJECT_DIR$/src/main/java/programming/redtech/util/Shape.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/programming/redtech/util/Square.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/programming/redtech/Canvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/programming/redtech/Canvas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/programming/redtech/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/programming/redtech/Camera.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/programming/redtech/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/programming/redtech/UI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/programming/redtech/util/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/programming/redtech/util/Triangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/programming/redtech/util/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/programming/redtech/util/Vector.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +20,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -87,12 +87,21 @@
       <option name="project" value="LOCAL" />
       <updated>1687810877370</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="cleaned up code, moved rendering to Camera class">
+      <created>1687894826432</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1687894826432</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init, basic triangle test working" />
-    <option name="LAST_COMMIT_MESSAGE" value="init, basic triangle test working" />
+    <MESSAGE value="cleaned up code, moved rendering to Camera class" />
+    <MESSAGE value="added squares, fixed bug with the rasterization" />
+    <option name="LAST_COMMIT_MESSAGE" value="added squares, fixed bug with the rasterization" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RayTracer$UI.ic" NAME="UI Coverage Results" MODIFIED="1687809852925" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

@@ -3,6 +3,7 @@ package programming.redtech;
 import programming.redtech.util.Point;
 import programming.redtech.util.Triangle;
 import programming.redtech.util.Vector;
+import programming.redtech.util.Shape;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -26,12 +27,15 @@ public class Camera {
   public void addTriangle(Triangle t) {
     this.triangles.add(t);
   }
+  public void addShape(Shape s) {
+    this.triangles.addAll(Arrays.stream(s.triangulate()).toList());
+  }
 
   private Triangle.Plane[] getPlanes() {
     return Arrays.stream(this.triangles.toArray()).map(t -> ((Triangle) t).getPlane()).toArray(Triangle.Plane[]::new);
   }
   private Color castRay(Vector rayAngle, Triangle[] triangles, Color defaultColor) {
-    double currDistance = 0;
+    double currDistance = Double.MAX_VALUE;
     Color currColor = defaultColor;
     for (Triangle t : triangles) {
       final Triangle.Plane p = t.getPlane();
@@ -44,7 +48,7 @@ public class Camera {
       final Vector i = rayAngle.scale(distanceScalar).add(position.toVector());
       if (!t.isPointInside(i.toPoint())) continue;
       final double distance = Vector.fromPoints(position, i.toPoint()).magnitude();
-      if (distance > currDistance) {
+      if (distance < currDistance) {
         currDistance = distance;
         currColor = new Color(255, 0, 0, (int) (255/distance));
       }
